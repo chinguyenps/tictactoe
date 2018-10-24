@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Button from 'react-button-component';
+
 import './index.css';
 import Board from '../Board';
 
@@ -17,6 +19,8 @@ class Game extends React.Component {
       }],
       xIsNext: true
     };
+
+    //initiate the api instance for the game's endpoints
     api.createEntity({ name: 'game' })
   }
 
@@ -36,6 +40,21 @@ class Game extends React.Component {
     });
 
     api.endpoints.game.call({ name: 'save'})
+    .then(({data}) => console.log(data));
+  }
+
+  startGame(){
+    api.endpoints.game.call({ name: 'start'})
+    .then(({data}) => console.log(data));
+  }
+
+  resetGame(){
+    api.endpoints.game.call({ name: 'reset'})
+    .then(({data}) => console.log(data));
+  }
+
+  loadGame(){
+    api.endpoints.game.call({ name: 'load'})
     .then(({data}) => console.log(data));
   }
   
@@ -61,7 +80,25 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{/* TODO */}</ol>
+
+           <div className="button">
+            <Button onClick={() => this.startGame()}>
+              Start
+            </Button>
+          </div>
+
+          <div className="button">
+            <Button onClick={() => this.resetGame()}>
+              Reset
+            </Button>
+          </div>
+
+          <div className="button">
+            <Button onClick={() => this.loadGame()}>
+              Load
+            </Button>
+          </div>
+
         </div>
       </div>
     );

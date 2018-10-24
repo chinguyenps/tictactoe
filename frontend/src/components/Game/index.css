@@ -17,3 +17,11 @@
 .game-info {
   margin-left: 20px;
 }
+
+
+.button {
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(70deg, #FF5686, #FF7B9E);
+}
