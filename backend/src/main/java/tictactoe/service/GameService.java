@@ -21,7 +21,7 @@ public class GameService {
         return game;
     }
     
-    public void reset() {
+    public void reset(String id) {
 
     }    
 }

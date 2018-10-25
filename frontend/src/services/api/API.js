@@ -38,7 +38,7 @@ class API {
 
     endpoints.delete = ({ id }, config={}) => axios.delete(`${resourceURL}/${id}`, config)
 
-    endpoints.call = ({ name }, config={}) =>  axios.get(`${resourceURL}/${name}`, config)
+    endpoints.call = ({ name, id }, config={}) =>  axios.get(`${resourceURL}/${name}?id=${id}`, config)
 
     return endpoints
 

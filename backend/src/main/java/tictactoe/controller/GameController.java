@@ -29,8 +29,8 @@ public class GameController {
     }
     
     @RequestMapping("/reset")
-    public void saveHistory(@RequestParam(value="history") String history) {
-    	gameService.reset();
+    public void reset(@RequestParam(value="id") String id) {
+    	gameService.reset(id);
     }    
     
     @RequestMapping("/save")

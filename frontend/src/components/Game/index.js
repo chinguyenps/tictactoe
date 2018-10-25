@@ -17,7 +17,9 @@ class Game extends React.Component {
       history: [{
         squares: Array(9).fill(null)
       }],
-      xIsNext: true
+      xIsNext: true,
+      xIsStarted: true,
+      gameId: ''
     };
 
     //initiate the api instance for the game's endpoints
@@ -29,6 +31,9 @@ class Game extends React.Component {
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
+      this.setState({
+        xIsStarted: false,
+      });       
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
@@ -39,17 +44,41 @@ class Game extends React.Component {
       xIsNext: !this.state.xIsNext,
     });
 
-    api.endpoints.game.call({ name: 'save'})
+    api.endpoints.game.call({ name: 'save', id: this.state.gameId})
     .then(({data}) => console.log(data));
+  }
+
+  resetState(){
+    const history = this.state.history;    
+    this.setState({
+      history: history.concat([{
+        squares: Array(9).fill(null)
+      }]),
+      xIsNext: !this.state.xIsNext,
+    });    
   }
 
   startGame(){
+    this.resetState();
+
+    this.setState({
+      xIsStarted: true,
+    });    
+
     api.endpoints.game.call({ name: 'start'})
-    .then(({data}) => console.log(data));
+    .then(({data}) => 
+      {
+        console.log(data);
+        this.setState({
+          gameId: data.id,
+        })        
+      });
   }
 
   resetGame(){
-    api.endpoints.game.call({ name: 'reset'})
+    this.resetState();
+
+    api.endpoints.game.call({ name: 'reset', id: this.state.gameId})
     .then(({data}) => console.log(data));
   }
 
