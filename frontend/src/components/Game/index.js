@@ -44,7 +44,8 @@ class Game extends React.Component {
       xIsNext: !this.state.xIsNext,
     });
 
-    api.endpoints.game.call({ name: 'save', id: this.state.gameId})
+    const post = {id: this.state.gameId, history: history};
+    api.endpoints.game.save(post)
     .then(({data}) => console.log(data));
   }
 

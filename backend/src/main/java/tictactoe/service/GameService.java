@@ -17,7 +17,8 @@ public class GameService {
     private final AtomicLong counter = new AtomicLong();
 
     public Game newGame() {
-    	Game game = repository.save(new Game(Long.toString(counter.incrementAndGet())));
+    	String id = java.util.UUID.randomUUID().toString();
+    	Game game = repository.save(new Game(id));
         return game;
     }
     

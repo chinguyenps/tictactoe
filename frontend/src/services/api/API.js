@@ -40,6 +40,10 @@ class API {
 
     endpoints.call = ({ name, id }, config={}) =>  axios.get(`${resourceURL}/${name}?id=${id}`, config)
 
+    endpoints.post = (name, id, toCreate, config={}) =>  axios.post(`${resourceURL}/${name}`, toCreate, config)  
+    
+   endpoints.save = (toCreate, config={}) =>  axios.post(`${resourceURL}/save/`, toCreate, config)      
+
     return endpoints
 
   }
