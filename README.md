@@ -27,3 +27,12 @@ Instruction:
    - https://reactjs.org/docs/create-a-new-react-app.html#create-react-app
    - https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1
    - https://spring.io/guides/gs/rest-service/	
+   - https://spring.io/guides/gs/rest-service-cors/
+   - https://daveceddia.com/access-control-allow-origin-cors-errors-in-react-express/
+   - https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#proxying-api-requests-in-development
+   - https://codeburst.io/how-to-call-api-in-a-smart-way-2ca572c6fe86
+   - https://github.com/FrancescoSaverioZuppichini/API-Class
+   - https://spring.io/guides/gs/accessing-data-mongodb/
+   - https://spring.io/guides/gs/maven/
+   - https://reactjs.org/tutorial/tutorial.html
+
